@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 Camera Test</title>
+</head>
+<body>
+    <h1>ESP32 Camera Feed</h1>
+    <img id="camera" src="" width="640" height="480">
+    
+    <script>
+        function updateFrame() {
+            document.getElementById('camera').src = '/get_frame?' + new Date().getTime();
+        }
+        
+        // Update frame every 100ms (10 FPS)
+        setInterval(updateFrame, 100);
+        updateFrame(); // Initial load
+    </script>
+</body>
+</html>
